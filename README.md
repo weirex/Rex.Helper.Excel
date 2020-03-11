@@ -2,7 +2,7 @@
 
 ## 简介
 框架 `.NET Standard 2.1` `.NET Framework 4.7`，
-- > using [EPPlus](https://www.nuget.org/packages/EPPlus "EPPlus") , [EPPlus.Core.Extensions](https://www.nuget.org/packages/EPPlus.Core.Extensions "EPPlus.Core.Extensions")
+- > **using [EPPlus](https://www.nuget.org/packages/EPPlus "EPPlus") , [EPPlus.Core.Extensions](https://www.nuget.org/packages/EPPlus.Core.Extensions "EPPlus.Core.Extensions")**
 
 ## 更新日志
 ## 1.0.0 （2020.03.07）
