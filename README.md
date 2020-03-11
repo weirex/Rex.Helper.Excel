@@ -218,3 +218,56 @@ table = ExcelHelper.ToTable(path, 2);
 //读取所有sheet，返回 List<DataTable>
 var tables = ExcelHelper.ToTables(path);
 ```
+
+
+## 3. Excel => `DataTable`
+- 目前只支持 **`.xlsx`** 格式文档
+- .NET Framework 版本索引从 1 开始，.NET Core 版本索引从 0 开始
+
+```csharp
+var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "demo.xlsx");
+//将第1个 sheet，返回 DataTable
+var table = ExcelHelper.ToTable(path);
+//将第3个 sheet，返回 DataTable
+table = ExcelHelper.ToTable(path, 2);
+
+//读取所有sheet，返回 List<DataTable>
+var tables = ExcelHelper.ToTables(path);
+```
+
+
+## 3. Excel => `List<T>`
+- 目前只支持 **`.xlsx`** 格式文档
+- .NET Framework 版本索引从 1 开始，.NET Core 版本索引从 0 开始
+- `ExcelTableColumn` 属性映射到Excel列，别名和索引不可同时使用（不允许`[ExcelTableColumn(2, ColumnName = "Year of Birth")]`）
+- 推荐：`属性顺序` 保持与 `Excel列顺序` 一致
+
+
+```csharp
+class Person {
+    public string FirstName { get; set; }
+
+    [ExcelTableColumn]
+    public string LastName { get; set; }
+
+    [ExcelTableColumn("Year of Birth")]
+    public int YearBorn { get; set; }
+}
+
+var _data = new List<Person>
+{
+    new Person {FirstName = "Daniel", LastName = "Day-Lewis", YearBorn = 1957},
+    new Person {FirstName = "Sally", LastName = "Field", YearBorn = 1946},
+    new Person {FirstName = "David", LastName = "Strathairn", YearBorn = 1949},
+    new Person {FirstName = "Joseph", LastName = "Gordon-Levitt", YearBorn = 1981},
+};
+
+var sheet = _data.Where(x => x.YearBorn < 2000).ToWorksheet("sheet1");
+var bytes = sheet.ToXlsx();
+var path = Path.Combine(ExcelPath, $"{DateTime.Now:yyyMMddHHmmssfff}.xlsx");
+File.WriteAllBytes(path, bytes);
+
+var list = ExcelHelper.ToList<Person>(path, 0); // list.Count == 4
+
+```
+
