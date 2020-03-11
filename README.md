@@ -212,7 +212,7 @@ File.WriteAllBytes(string.Concat(ExcelPath, DateTime.Now.ToString("yyyMMddHHmmss
 var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "demo.xlsx");
 //将第1个 sheet，返回 DataTable
 var table = ExcelHelper.ToTable(path);
-//将第2个 sheet，返回 DataTable
+//将第3个 sheet，返回 DataTable
 table = ExcelHelper.ToTable(path, 2);
 
 //读取所有sheet，返回 List<DataTable>
