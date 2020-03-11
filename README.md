@@ -203,3 +203,16 @@ var bytes = worksheet.ToXlsx();
 File.WriteAllBytes(string.Concat(ExcelPath, DateTime.Now.ToString("yyyMMddHHmmssfff"), ".xlsx"), bytes);
 
 ```
+
+## 3.读取 Excel 到 DataTable
+- 目前只支持 **`.xlsx`** 格式文档
+```csharp
+var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "demo.xlsx");
+//将第1个 sheet，返回 DataTable
+var table = ExcelHelper.ToTable(path);
+//将第2个 sheet，返回 DataTable
+table = ExcelHelper.ToTable(path, 2);
+
+//读取所有sheet，返回 List<DataTable>
+var tables = ExcelHelper.ToTables(path);
+```
