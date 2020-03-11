@@ -206,6 +206,8 @@ File.WriteAllBytes(string.Concat(ExcelPath, DateTime.Now.ToString("yyyMMddHHmmss
 
 ## 3.读取 Excel 到 DataTable
 - 目前只支持 **`.xlsx`** 格式文档
+- 索引从0开始
+
 ```csharp
 var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "demo.xlsx");
 //将第1个 sheet，返回 DataTable
