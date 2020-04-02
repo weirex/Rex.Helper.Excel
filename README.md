@@ -8,10 +8,6 @@
   - > core: `appsettings.json` 根节点增加 `"EPPlus": { "ExcelPackage": { "LicenseContext": "NonCommercial" } }`
 - [更新日志（2020.04.03）](CHANGELOG.md "更新日志")
 
-## 更新日志
-## 1.0.0 （2020.03.07）
-- 支持 `DataTable` `List<T>` 生成 Excel 文件
-
 
 ## 1.DataTable 集合生成 Excel 文件
 
