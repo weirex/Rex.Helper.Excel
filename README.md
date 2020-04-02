@@ -3,6 +3,10 @@
 ## 简介
 框架 `.NET Standard 2.1` `.NET Framework 4.7`，
 - > **using [EPPlus](https://www.nuget.org/packages/EPPlus "EPPlus") , [EPPlus.Core.Extensions](https://www.nuget.org/packages/EPPlus.Core.Extensions "EPPlus.Core.Extensions")**
+- > EPPlus 5+
+  - > .net: `appSettings` 增加 `<add key="EPPlus:ExcelPackage.LicenseContext" value="NonCommercial" />`
+  - > core: `appsettings.json` 根节点增加 `"EPPlus": { "ExcelPackage": { "LicenseContext": "NonCommercial" } }`
+- [更新日志（2020.04.03）](CHANGELOG.md "更新日志")
 
 ## 更新日志
 ## 1.0.0 （2020.03.07）
