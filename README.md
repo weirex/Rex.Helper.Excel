@@ -6,7 +6,7 @@
 - > EPPlus 5+
   - > .net: `appSettings` 增加 `<add key="EPPlus:ExcelPackage.LicenseContext" value="NonCommercial" />`
   - > core: `appsettings.json` 根节点增加 `"EPPlus": { "ExcelPackage": { "LicenseContext": "NonCommercial" } }`
-- [更新日志（2020.04.03）](CHANGELOG.md "更新日志")
+- [更新日志（2020.04.16）](CHANGELOG.md "更新日志")
 
 
 ## 1.DataTable 集合生成 Excel 文件
@@ -241,6 +241,7 @@ var tables = ExcelHelper.ToTables(path);
 - .NET Framework 版本索引从 1 开始，.NET Core 版本索引从 0 开始
 - `ExcelTableColumn` 属性映射到Excel列，别名和索引不可同时使用（不允许`[ExcelTableColumn(2, ColumnName = "Year of Birth")]`）
 - 推荐：`属性顺序` 保持与 `Excel列顺序` 一致
+- 在转换泛型对象时，建议非 string 类型允许为 null，如：int ==> int?，DateTime ==> DateTime?
 
 
 ```csharp
@@ -251,7 +252,7 @@ class Person {
     public string LastName { get; set; }
 
     [ExcelTableColumn("Year of Birth")]
-    public int YearBorn { get; set; }
+    public int? YearBorn { get; set; }
 }
 
 var _data = new List<Person>
