@@ -2,7 +2,6 @@
 
 ## 1.1.5 （2020.04.16）
 - 读取 Excel 时对单元格内数据进行 trim 处理
-- 在转换泛型对象时，建议非 string 类型允许为 null，如：int ==> int?，DateTime ==> DateTime?
 
 ## 1.1.4 （2020.04.03）
 - 升级 EPPlus 5+
