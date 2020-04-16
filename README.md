@@ -241,7 +241,6 @@ var tables = ExcelHelper.ToTables(path);
 - .NET Framework 版本索引从 1 开始，.NET Core 版本索引从 0 开始
 - `ExcelTableColumn` 属性映射到Excel列，别名和索引不可同时使用（不允许`[ExcelTableColumn(2, ColumnName = "Year of Birth")]`）
 - 推荐：`属性顺序` 保持与 `Excel列顺序` 一致
-- 在转换泛型对象时，建议非 string 类型允许为 null，如：int ==> int?，DateTime ==> DateTime?
 
 
 ```csharp
